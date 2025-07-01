@@ -1,4 +1,5 @@
 ﻿using BACKEND.Data;
+using BACKEND.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BACKEND.Controllers
@@ -28,6 +29,25 @@ namespace BACKEND.Controllers
             }
 
         }
+        [HttpPost]
+        public IActionResult Post(Igrica igrica)
+        {
+
+            try
+            {
+                _context.Igrice.Add(igrica);
+                _context.SaveChanges();
+                return StatusCode(StatusCodes.Status201Created, igrica);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+
+
+        }
+
     }
+
 
 }
