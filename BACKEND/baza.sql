@@ -10,7 +10,7 @@ create table igrice(
 sifra int not null primary key identity(1,1),
 naziv varchar(100) not null,
 ocjena decimal(3,1) not null,
-godina_izdanja datetime not null
+GodinaIzdanja datetime not null
 );
 
 create table zanrovi(
