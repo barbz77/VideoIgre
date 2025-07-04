@@ -46,6 +46,69 @@ namespace BACKEND.Controllers
 
 
         }
+        [HttpPut("sifra:int")]
+        public IActionResult Put(int sifra, Igrica igrica)
+        {
+            if (sifra < 1)
+            {
+                return BadRequest(new { poruka = "Sifra mora bit veca od 0" });
+            }
+
+            try
+            {
+                Igrica i = _context.Igrice.Find(sifra);
+                if (i == null)
+                {
+                    return NotFound();
+                }
+
+                i.Naziv = igrica.Naziv;
+                i.Ocjena = igrica.Ocjena;
+                i.godinaIzdanja = igrica.godinaIzdanja;
+
+                _context.Igrice.Update(i);
+                _context.SaveChanges();
+                return Ok(i);
+
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e);
+            }
+
+        }
+
+        [HttpDelete("{sifra:int}")]
+        public IActionResult Delete(int sifra)
+        {
+            if (sifra < 1)
+            {
+                return BadRequest(new { poruka = "Sifra mora bit veca od 0" });
+            }
+
+            try
+            {
+                Igrica i = _context.Igrice.Find(sifra);
+                if (i == null)
+                {
+                    return NotFound();
+                }
+      
+                _context.Igrice.Remove(i);
+                _context.SaveChanges();
+                return NoContent();
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
+
+
+
+
 
     }
 
