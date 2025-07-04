@@ -1,10 +1,22 @@
-﻿use master;
-go
-drop database if exists preporucitelj;
-go
-create database preporucitelj collate Croatian_CI_AS;
-go
-use preporucitelj;
+﻿
+
+
+ALTER DATABASE db_abb4fb_wp8 SET SINGLE_USER WITH
+ROLLBACK IMMEDIATE;
+GO
+ALTER DATABASE db_abb4fb_wp8 COLLATE Latin1_General_100_CI_AI_SC_UTF8;
+GO
+ALTER DATABASE db_abb4fb_wp8 SET MULTI_USER;
+GO
+
+
+--use master;
+--go
+--drop database if exists preporucitelj;
+--go
+--create database preporucitelj collate Croatian_CI_AS;
+--go
+--use preporucitelj;
 
 create table igrice(
 sifra int not null primary key identity(1,1),
