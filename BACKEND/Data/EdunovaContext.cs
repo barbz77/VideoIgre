@@ -11,5 +11,7 @@ namespace BACKEND.Data
         }
 
         public DbSet<Igrica> Igrice {  get; set; }
+        public DbSet<Zanr> Zanrovi { get; set; }
+        public DbSet<Platforma> Platforme { get; set; }
     }
 }

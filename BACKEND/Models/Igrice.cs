@@ -5,5 +5,6 @@
         public string Naziv { get; set; } = "";
         public decimal Ocjena { get; set; }
         public DateTime godinaIzdanja { get; set; }
+      
     }
 }
