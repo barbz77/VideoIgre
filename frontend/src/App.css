@@ -1,12 +1,19 @@
+body{
+    background-image: linear-gradient( #9198e5,#e66465); 
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .ruka{
     cursor:pointer;
 }
 .app{
      
-    min-height: 600px;
-    border: 2px dotted rgb(174, 226, 159);
-    margin: 50px;
-    padding: 25px
+    min-height: 700px;
+    border: 2px, dotted;
+    margin: 25px;
+    padding: 25px;
     
      
 }
@@ -17,4 +24,7 @@
 
 .desno{
     text-align: right;
+}
+footer{
+    background-color: transparent;
 }

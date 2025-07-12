@@ -23,7 +23,7 @@ function App() {
       </Routes>
       </Container>
       <hr />
-      &copy;Edunova
+      &copy;Game Recommender
     </Container>
   )
 }
