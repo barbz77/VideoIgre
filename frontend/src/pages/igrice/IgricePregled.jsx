@@ -3,13 +3,13 @@ import { Container, Table } from "react-bootstrap";
 import IgriceService from "../../services/IgriceService";
 
 
-export default function IGRICE_PREGLED(){
+export default function IgricePregled(){
 
 const[igrice, setigrice]= useState([]);
 
 
   async function dohvatiIgrice(){
-   const odgovor = await IGRICE_PREGLED()
+   const odgovor = await IgriceService.get()
     setigrice(odgovor)
    
   }
@@ -26,7 +26,7 @@ useEffect(()=>{
         <Table striped bordered hover responsive>
            <thead>
                <tr>
-                <th>/Naziv</th>
+                <th>Naziv</th>
                 <th>Ocjena</th>
                 <th>Godinja Izdanja</th>
                </tr>
@@ -34,9 +34,9 @@ useEffect(()=>{
            <tbody>
             {igrice && igrice.map((igrica, index)=>(
                 <tr key={index}>
-                    <td>igrica.naziv</td>
-                    <td>igrica.ocjena</td>
-                    <td>igrica.godinaIzdanja</td>
+                    <td>{igrica.naziv}</td>
+                    <td>{igrica.ocjena}</td>
+                    <td>{igrica.godinaIzdanja}</td>
                 </tr>
 
             ))}
