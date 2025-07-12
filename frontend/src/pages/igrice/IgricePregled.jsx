@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import IgriceService from "../../services/IgriceService";
+import { NumericFormat } from "react-number-format";
+import moment from "moment";
 
 
 export default function IgricePregled(){
 
-const[igrice, setigrice]= useState([]);
+const[igrice, setIgrice]= useState([]);
 
 
   async function dohvatiIgrice(){
    const odgovor = await IgriceService.get()
-    setigrice(odgovor)
+    setIgrice(odgovor)
    
   }
 
@@ -22,7 +24,7 @@ useEffect(()=>{
 
     return(
         <>
-            Pregled Igrica
+            Tablični Pregled Igrica
         <Table striped bordered hover responsive>
            <thead>
                <tr>
@@ -35,8 +37,16 @@ useEffect(()=>{
             {igrice && igrice.map((igrica, index)=>(
                 <tr key={index}>
                     <td>{igrica.naziv}</td>
-                    <td>{igrica.ocjena}</td>
-                    <td>{igrica.godinaIzdanja}</td>
+                    <td className="desno">
+                        <NumericFormat
+                          value={igrica.ocjena}
+                          displayType="text"
+                          thousandSeparator='.'
+                          decimalSeparator=","
+                    />
+                    </td>
+
+                    <td>{moment.utc(igrica.datumIzdanja).format('DD-MM-YYYY')}</td>
                 </tr>
 
             ))}

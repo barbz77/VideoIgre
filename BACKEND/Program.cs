@@ -47,6 +47,10 @@ app.UseSwaggerUI(options =>
 
 app.MapControllers();
 
+app.UseStaticFiles();
+app.UseDefaultFiles();
+app.MapFallbackToFile("index.html");
+
 app.UseCors("CorsPolicy");
 
 app.Run();
