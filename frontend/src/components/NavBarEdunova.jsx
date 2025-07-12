@@ -21,7 +21,7 @@ const navigate = useNavigate()
             
             <Nav.Link href="#link">Početna</Nav.Link>
             <NavDropdown title="Programi" id="basic-nav-dropdown">
-              <NavDropdown.Item onClick={()=>navigate(RouteNames.IGRICE_PREGLED)}>Igre</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>navigate(RouteNames.IGRICE_PREGLED)}>Igrice</NavDropdown.Item>
              
                 
             

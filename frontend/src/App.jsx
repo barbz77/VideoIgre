@@ -16,10 +16,12 @@ function App() {
     <Container>
       <NavbarEdunova />
 
+<Container className="app">
       <Routes>
         <Route path={RouteNames.HOME}element={<Pocetna />}/>
         <Route path={RouteNames.IGRICE_PREGLED}element={<IgricePregled />}/>
       </Routes>
+      </Container>
       <hr />
       &copy;Edunova
     </Container>
