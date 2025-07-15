@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import { RouteNames } from './constants'
 import Pocetna from './pages/Pocetna'
 import IgricePregled from './pages/igrice/IgricePregled'
+import IgriceDodaj from './pages/igrice/IgriceDodaj'
 
 
 
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path={RouteNames.HOME}element={<Pocetna />}/>
         <Route path={RouteNames.IGRICE_PREGLED}element={<IgricePregled />}/>
+        <Route path={RouteNames.IGRICE_NOVI}element={<IgriceDodaj/>}/>
       </Routes>
       </Container>
       <hr />

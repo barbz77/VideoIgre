@@ -3,6 +3,8 @@ import { Container, Table } from "react-bootstrap";
 import IgriceService from "../../services/IgriceService";
 import { NumericFormat } from "react-number-format";
 import moment from "moment";
+import { Link } from "react-router-dom";
+import { RouteNames } from "../../constants";
 
 
 export default function IgricePregled(){
@@ -25,6 +27,11 @@ useEffect(()=>{
     return(
         <>
             Tablični Pregled Igrica
+
+        <Link 
+        className="btn btn-success"
+        to={RouteNames.IGRICE_NOVI}>Dodavanje novih stvari</Link>
+
         <Table striped bordered hover responsive>
            <thead>
                <tr>
