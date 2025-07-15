@@ -1,0 +1,29 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient y2="0" x2="1" y1="0" x1="0" id="svg_2">
+   <stop offset="0" stop-color="#24bef2"/>
+   <stop offset="0.88281" stop-color="#db410d"/>
+  </linearGradient>
+  <linearGradient y2="0" x2="1" y1="0" x1="0" id="svg_4">
+   <stop offset="0" stop-color="#000000"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <g stroke="null">
+
+   <g stroke="null">
+    <title stroke="null">Layer 1</title>
+    <g stroke="null" transform="matrix(3.16155 0.00754348 -0.00746976 3.19275 -556.063 -449.974)">
+     <g stroke="null">
+      <title stroke="null">Layer 1</title>
+      <path stroke="null" id="svg_5" d="m305.86192,224.693l7.97751,-35.38714l32.29885,-15.74877l32.29885,15.74877l7.97766,35.38714l-22.35214,28.37847l-35.84874,0l-22.35199,-28.37847z" fill="url(#svg_2)"/>
+      <text stroke="null" font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Sacramento'" font-size="24" stroke-width="0" id="svg_3" y="264.62525" x="256.97138" fill="url(#svg_4)" transform="matrix(1.49172 0 0 1.52912 -162.279 -159.043)">Game</text>
+      <text stroke="null" xml:space="preserve" text-anchor="start" font-family="'Sacramento'" font-size="24" id="svg_1" y="285.62525" x="239.97138" fill="url(#svg_2)" transform="matrix(1.49172 0 0 1.52912 -162.279 -159.043)">Recommender</text>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
