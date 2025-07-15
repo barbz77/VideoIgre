@@ -3,12 +3,19 @@ import { HttpService } from "./HttpService"
 async function get(){
     return await HttpService.get('/Igrica')
     .then((odgovor)=>{
-        //console.log(odgovor.data)
+        
         return odgovor.data
     })
     .catch((e)=>{})
 }
 
+async function dodaj(novo) {
+    return await HttpService.post('/Igrica',igrica)
+    .then((odgovor)=>{return true})
+    .catch((e)=>{return false})
+}
+
 export default{
-    get
+    get,
+    dodaj
 }

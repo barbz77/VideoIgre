@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import IgriceService from "../../services/IgriceService";
 import { NumericFormat } from "react-number-format";
 import moment from "moment";
@@ -23,6 +23,19 @@ useEffect(()=>{
     dohvatiIgrice();
 },[])
 
+    function obrisi(sifra){
+        if(!confirm('Sigurno obrisati?')){
+            return;
+        }
+        brisanje(sifra)
+    }
+
+    async function brisanje(sifra) {
+        const odgovor = await SmjerService.obrisi(sifra);
+        dohvatiSmjerove();
+    }
+
+
 
     return(
         <>
@@ -38,6 +51,8 @@ useEffect(()=>{
                 <th>Naziv</th>
                 <th>Ocjena</th>
                 <th>Godinja Izdanja</th>
+                
+                <th>Akcija</th>
                </tr>
            </thead>
            <tbody>
@@ -51,6 +66,12 @@ useEffect(()=>{
                           thousandSeparator='.'
                           decimalSeparator=","
                     />
+                    </td>
+                    <td>
+                        <Button variant="danger">
+                            onClick={()=>obrisi(igrica.sifra)}
+                            Obriši
+                        </Button>
                     </td>
 
                     <td>{moment.utc(igrica.datumIzdanja).format('DD-MM-YYYY')}</td>
