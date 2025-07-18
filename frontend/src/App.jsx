@@ -7,6 +7,7 @@ import { RouteNames } from './constants'
 import Pocetna from './pages/Pocetna'
 import IgricePregled from './pages/igrice/IgricePregled'
 import IgriceDodaj from './pages/igrice/IgriceDodaj'
+import IgricePromjena from './pages/igrice/IgricePromjena'
 
 
 
@@ -20,8 +21,10 @@ function App() {
 <Container className="app">
       <Routes>
         <Route path={RouteNames.HOME}element={<Pocetna />}/>
+
         <Route path={RouteNames.IGRICE_PREGLED}element={<IgricePregled />}/>
         <Route path={RouteNames.IGRICE_NOVI}element={<IgriceDodaj/>}/>
+        <Route path={RouteNames.IGRICE_PROMJENA}element={<IgricePromjena/>}/>
       </Routes>
       </Container>
       <hr />

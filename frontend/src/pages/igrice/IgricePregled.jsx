@@ -3,13 +3,14 @@ import { Button, Container, Table } from "react-bootstrap";
 import IgriceService from "../../services/IgriceService";
 import { NumericFormat } from "react-number-format";
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
 
 
 export default function IgricePregled(){
 
 const[igrice, setIgrice]= useState([]);
+const navigate= useNavigate();
 
 
   async function dohvatiIgrice(){
@@ -69,6 +70,12 @@ useEffect(()=>{
                     </td>
                     <td>{moment.utc(igrica.datumIzdanja).format('DD-MM-YYYY')}</td>
                    <td>
+
+                   <Button onClick={() => navigate(`/igrice/${igrica.sifra}`)}>
+                   Promjena
+                   </Button>
+
+                   &nbsp;&nbsp;&nbsp;&nbsp;
                    <Button variant="danger" onClick={() => obrisi(igrica.sifra)}>
                    Obriši
                    </Button>
