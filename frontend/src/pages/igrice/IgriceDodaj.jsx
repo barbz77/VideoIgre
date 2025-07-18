@@ -1,5 +1,5 @@
-import { Button, Col, Row } from "react-bootstrap";
-import { Form, Link, useNavigate } from "react-router-dom";
+import { Button, Col, Form, Row } from "react-bootstrap";
+import { Link, useNavigate, } from "react-router-dom";
 import { RouteNames } from "../../constants";
 import IgriceService from "../../services/IgriceService";
 import moment from "moment";
@@ -18,12 +18,13 @@ export default function IgriceDodaj(){
         e.preventDefault();
 
         let podaci = new FormData(e.target);
+        
 
         dodaj(
             {
              naziv: podaci.get('naziv'),
              ocjena: parseFloat(podaci.get('ocjena')),
-             godinaIzdanja: moment.utc(podaci.get('godinaIzdanja'))
+             godinaIzdanja: moment.utc(podaci.get('godinaIzdanja')),
         }
              
              
@@ -35,7 +36,7 @@ export default function IgriceDodaj(){
       return(
 
          <>
-        Dodavanje novog
+        Dodavanje igrica
         
         <Form onSubmit={odradiSubmit}>
         

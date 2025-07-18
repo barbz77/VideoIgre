@@ -10,7 +10,7 @@ async function get(){
 }
 
 async function dodaj(novo) {
-    return await HttpService.post('/Igrica',igrica)
+    return await HttpService.post('/Igrica',novo)
     .then((odgovor)=>{return true})
     .catch((e)=>{return false})
 }
