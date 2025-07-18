@@ -67,14 +67,14 @@ useEffect(()=>{
                           decimalSeparator=","
                     />
                     </td>
-                    <td>
-                        <Button variant="danger">
-                            onClick={()=>obrisi(igrica.sifra)}
-                            Obriši
-                        </Button>
-                    </td>
-
                     <td>{moment.utc(igrica.datumIzdanja).format('DD-MM-YYYY')}</td>
+                   <td>
+                   <Button variant="danger" onClick={() => obrisi(igrica.sifra)}>
+                   Obriši
+                   </Button>
+                   </td>
+
+                    
                 </tr>
 
             ))}
