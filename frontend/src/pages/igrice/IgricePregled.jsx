@@ -32,8 +32,8 @@ useEffect(()=>{
     }
 
     async function brisanje(sifra) {
-        const odgovor = await SmjerService.obrisi(sifra);
-        dohvatiSmjerove();
+        const odgovor = await IgriceService.obrisi(sifra);
+        dohvatiIgrice();
     }
 
 
@@ -68,7 +68,7 @@ useEffect(()=>{
                           decimalSeparator=","
                     />
                     </td>
-                    <td>{moment.utc(igrica.datumIzdanja).format('DD-MM-YYYY')}</td>
+                    <td>{moment.utc(igrica.godinaIzdanja).format('DD-MM-YYYY')}</td>
                    <td>
 
                    <Button onClick={() => navigate(`/igrice/${igrica.sifra}`)}>
