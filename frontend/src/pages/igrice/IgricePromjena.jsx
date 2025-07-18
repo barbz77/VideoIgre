@@ -10,12 +10,12 @@ export default function IgricePromjena(){
 
     const navigate=useNavigate();
     const params= useParams();
-    const [igrica, setIgrica]= useState(false)
+    const [igrica, setIgrica]= useState({})
     
 
     async function ucitajIgricu() {
         const odgovor= await IgriceService.getBySifra(params.sifra)
-        odgovor.godinaIzdanja= moment.utc(odgovor.godinaIzdanja).format('yyyy-MM-DD')
+        odgovor.godinaIzdanja= moment.utc(odgovor.godinaIzdanja).format('YYYY-MM-DD')
         setIgrica(odgovor)
     }
 
@@ -23,8 +23,8 @@ export default function IgricePromjena(){
        ucitajIgricu()
     },[])
 
-    async function promjena(sifra, igrice) {
-        const odgovor= await IgriceService.promjeni(sifra,igrice);
+    async function promjena(sifra, igrica){
+        const odgovor= await IgriceService.promjeni(sifra,igrica);
         navigate(RouteNames.IGRICE_PREGLED);
       }
 
@@ -39,7 +39,7 @@ export default function IgricePromjena(){
             {
              naziv: podaci.get('naziv'),
              ocjena: parseFloat(podaci.get('ocjena')),
-             godinaIzdanja: moment.utc(podaci.get('godinaIzdanja')),
+             godinaIzdanja: moment(podaci.get('godinaIzdanja')).toISOString(),
         }
         
              
@@ -52,7 +52,7 @@ export default function IgricePromjena(){
       return(
 
          <>
-        Dodavanje igrica
+        Promjena igrica
         
         <Form onSubmit={odradiSubmit}>
         

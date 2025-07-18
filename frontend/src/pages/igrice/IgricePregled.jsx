@@ -10,7 +10,7 @@ import { RouteNames } from "../../constants";
 export default function IgricePregled(){
 
 const[igrice, setIgrice]= useState([]);
-const navigate= useNavigate();
+const navigate = useNavigate();
 
 
   async function dohvatiIgrice(){
