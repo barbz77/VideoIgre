@@ -39,7 +39,7 @@ useEffect(()=>{
 
     return(
         <>
-            Tablični Pregled Igrica
+            
 
         <Link 
         className="btn btn-success"
