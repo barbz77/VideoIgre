@@ -46,7 +46,7 @@ namespace BACKEND.Controllers
 
 
         }
-        [HttpPut("sifra:int")]
+        [HttpPut("{sifra:int}")]
         public IActionResult Put(int sifra, Zanr zanr)
         {
             if (sifra < 1)

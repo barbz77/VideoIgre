@@ -1,6 +1,7 @@
 ﻿using BACKEND.Data;
 using BACKEND.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BACKEND.Controllers
 {
@@ -133,11 +134,30 @@ namespace BACKEND.Controllers
         }
 
 
+      
+        [HttpGet("Random")]
+        public async Task<ActionResult<Igrica>> GetRandom()
+        {
+            
+            var count = await _context.Igrice.CountAsync();
 
+      
+            var randomGame = await _context.Igrice
+                                        .OrderBy(r => Guid.NewGuid())
+                                        .FirstOrDefaultAsync();
 
+            if (randomGame == null)
+            {
+                return NotFound("No games found in the database.");
+            }
 
-
+            return randomGame;
+        }
     }
 
 
+
 }
+
+
+
