@@ -16,13 +16,6 @@ builder.Services.AddDbContext<EdunovaContext>(o =>
     o.UseSqlServer(builder.Configuration.GetConnectionString("EdunovaContext"));
 });
 
-builder.Services.AddCors(o =>
-{
-    o.AddPolicy("CorsPolicy", p =>
-    {
-        p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-    });
-});
 
 var app = builder.Build();
 
@@ -34,7 +27,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
