@@ -11,11 +11,23 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddSwaggerGen();
 
+
+
 builder.Services.AddDbContext<EdunovaContext>(o => 
 {
     o.UseSqlServer(builder.Configuration.GetConnectionString("EdunovaContext"));
 });
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // your frontend URL
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -26,6 +38,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowLocalhost");
 
 
 app.UseAuthorization();
