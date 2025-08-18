@@ -32,6 +32,15 @@ async function promjeni(sifra,igrica) {
     .catch((e)=>{return false})
 }
 
+async function getRandom() {
+       return await HttpService.get('/Igrica/Random')
+    .then((odgovor)=>{
+        
+        return odgovor.data
+    })
+    .catch((e)=>{})
+}
+
 
 
 export default{
@@ -40,5 +49,6 @@ export default{
     dodaj,
     obrisi,
     promjeni,
+    getRandom
    
 }
