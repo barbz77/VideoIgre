@@ -20,9 +20,11 @@ const navigate = useNavigate()
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             
-            <Nav.Link href="#link">Početna</Nav.Link>
-            <NavDropdown title="Programi" id="basic-nav-dropdown">
+            <Nav.Link href="#link">Main</Nav.Link>
+            <NavDropdown title="Lists" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={()=>navigate(RouteNames.IGRICE_PREGLED)}>Games</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>navigate(RouteNames.ZANROVI_PREGLED)}>Genres</NavDropdown.Item>
+              <NavDropdown.Item onClick={()=>navigate(RouteNames.PLATFORME_PREGLED)}>Platforms</NavDropdown.Item>
              
                 
             

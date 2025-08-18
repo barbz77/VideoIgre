@@ -29,6 +29,33 @@ namespace BACKEND.Controllers
             }
 
         }
+
+        [HttpGet("{sifra:int}")]
+        public IActionResult Get(int sifra)
+        {
+            if (sifra <= 0)
+            {
+                return BadRequest("Sifra nije dobra");
+            }
+            try
+            {
+                var zanr = _context.Zanrovi.Find(sifra);
+                if (zanr == null)
+                {
+                    return NotFound();
+                }
+                return Ok(_context.Zanrovi);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+            
+        }
+        
+
+
+
         [HttpPost]
         public IActionResult Post(Zanr zanr)
         {

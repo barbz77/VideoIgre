@@ -36,23 +36,23 @@ export default function IgriceDodaj(){
       return(
 
          <>
-        Dodavanje igrica
+        Adding games
         
         <Form onSubmit={odradiSubmit}>
         
 
             <Form.Group controlId="naziv">
-                <Form.Label>Naziv</Form.Label>
+                <Form.Label>Name</Form.Label>
                 <Form.Control type="text" name="naziv" required />
             </Form.Group>
 
             <Form.Group controlId="ocjena">
-                <Form.Label>Ocjena</Form.Label>
+                <Form.Label>Rating</Form.Label>
                 <Form.Control type="number" name="ocjena" step={0.01} />
             </Form.Group>
 
             <Form.Group controlId="godinaIzdanja">
-                <Form.Label>Godina Izdanja</Form.Label>
+                <Form.Label>Release Date</Form.Label>
                 <Form.Control type="date" name="godinaIzdanja" />
             </Form.Group>
 
@@ -62,11 +62,11 @@ export default function IgriceDodaj(){
             <Row>
                 <Col xs={6} sm={6} md={3} lg={2} xl={6} xxl={6}>
                     <Link to={RouteNames.IGRICE_PREGLED}
-                    className="btn btn-danger">Odustani</Link>
+                    className="btn btn-danger">Quit</Link>
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
                     <Button variant="success" type="submit">
-                        Dodaj novo
+                        Add new
                     </Button>
                 </Col>
             </Row>

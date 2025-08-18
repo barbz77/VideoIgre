@@ -29,6 +29,30 @@ namespace BACKEND.Controllers
             }
 
         }
+
+        [HttpGet("{sifra:int}")]
+        public IActionResult Get(int sifra)
+        {
+            if (sifra <= 0)
+            {
+                return BadRequest("Sifra nije dobra");
+            }
+            try
+            {
+                var platforma = _context.Platforme.Find(sifra);
+                if (platforma == null)
+                {
+                    return NotFound();
+                }
+                return Ok(_context.Platforme);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+
+        }
+
         [HttpPost]
         public IActionResult Post(Platforma platforma)
         {

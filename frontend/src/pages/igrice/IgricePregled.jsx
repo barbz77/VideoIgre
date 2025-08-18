@@ -44,16 +44,16 @@ useEffect(()=>{
 
         <Link 
         className="btn btn-success"
-        to={RouteNames.IGRICE_NOVI}>Dodavanje novih stvari</Link>
+        to={RouteNames.IGRICE_NOVI}>Add new</Link>
 
         <Table striped bordered hover responsive>
            <thead>
                <tr>
-                <th>Naziv</th>
-                <th>Ocjena</th>
-                <th>Godinja Izdanja</th>
+                <th>Name</th>
+                <th>Rating</th>
+                <th>Release Date</th>
                 
-                <th>Akcija</th>
+                <th>Options</th>
                </tr>
            </thead>
            <tbody>
@@ -72,12 +72,12 @@ useEffect(()=>{
                    <td>
 
                    <Button onClick={() => navigate(`/igrice/${igrica.sifra}`)}>
-                   Promjena
+                   Change
                    </Button>
 
                    &nbsp;&nbsp;&nbsp;&nbsp;
                    <Button variant="danger" onClick={() => obrisi(igrica.sifra)}>
-                   Obriši
+                   Delete
                    </Button>
                    </td>
 
