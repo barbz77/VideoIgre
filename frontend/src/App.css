@@ -1,8 +1,13 @@
-body{
-    background-image: linear-gradient( #9198e5,#e66465); 
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+body{ 
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Eagle Lake', cursive;
+  background-image: url('Texturelabs_Paper_331M.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #3b2f2f; 
+
 }
 
 .ruka{
@@ -11,11 +16,9 @@ body{
 .app{
      
     min-height: 700px;
-    border: 2px, dotted, aqua;
+    border:2px dotted #3b2f2f;
     margin: 25px;
-    padding: 25px;
-    
-     
+    padding: 25px;   
 }
   
 .sredina{
@@ -28,3 +31,34 @@ body{
 footer{
     background-color: transparent;
 }
+.btn {
+  font-family: 'Eagle Lake', cursive;
+  background-color: #7b2d26; 
+  border: 2px solid #c9a227; 
+  color: #fdf6e3; 
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #c9a227; 
+  color: #3b2f2f; 
+}
+
+.table {
+  font-family: 'Eagle Lake', cursive;
+  background-color: #f4e1c1;
+  border: 3px solid #c9a227;
+}
+
+.table thead th {
+  background-color: #4a6741; 
+  color: #fdf6e3;
+}
+.bg-body-tertiary {
+    background-color: transparent !important; 
+}
+
+
+

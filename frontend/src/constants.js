@@ -4,7 +4,6 @@ export const RouteNames = {
    HOME: '/',
 
    IGRICE_PREGLED: '/igrice',
-   IGRICE_NASUMICNO: '/igrice',
    IGRICE_NOVI: '/igrice/dodaj',
    IGRICE_PROMJENA: '/igrice/:sifra',
    ZANROVI_PREGLED: '/zanrovi',

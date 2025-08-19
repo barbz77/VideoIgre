@@ -19,31 +19,32 @@ export default function Pocetna() {
         Random Game
       </Button>
 
-      <table className="table table-striped table-bordered mt-3">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th className="text-end">Rating</th>
-            <th>Release Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {igrica && (
-            <tr>
-              <td>{igrica.naziv}</td>
-              <td className="text-end">
-                <NumericFormat
-                  value={igrica.ocjena}
-                  displayType="text"
-                  thousandSeparator="."
-                  decimalSeparator=","
-                />
-              </td>
-              <td>{moment.utc(igrica.godinaIzdanja).format("DD-MM-YYYY")}</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+   {igrica && (
+  <table className="table table-striped table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th className="text-end">Rating</th>
+        <th>Release Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{igrica.naziv}</td>
+        <td className="text-end">
+          <NumericFormat
+            value={igrica.ocjena}
+            displayType="text"
+            thousandSeparator="."
+            decimalSeparator=","
+          />
+        </td>
+        <td>{moment.utc(igrica.godinaIzdanja).format("DD-MM-YYYY")}</td>
+      </tr>
+    </tbody>
+  </table>
+)}
+
     </>
-  );
+  )
 }
