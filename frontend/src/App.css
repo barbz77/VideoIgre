@@ -2,7 +2,7 @@ body{
   min-height: 100vh;
   margin: 0;
   font-family: 'Eagle Lake', cursive;
-  background-image: url('Texturelabs_Paper_331M.jpg');
+  background-image: url('/Texturelabs_Paper_331M.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
