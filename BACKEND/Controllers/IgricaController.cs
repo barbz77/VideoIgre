@@ -49,7 +49,7 @@ namespace BACKEND.Controllers
                 {
                     return NotFound();
                 }
-                return Ok(_context.Igrice);
+                return Ok(igrica);
             }
             catch (Exception e)
             {
