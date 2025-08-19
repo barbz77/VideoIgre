@@ -92,7 +92,7 @@ namespace BACKEND.Controllers
 
                 i.Naziv = igrica.Naziv;
                 i.Ocjena = igrica.Ocjena;
-                i.godinaIzdanja = igrica.godinaIzdanja;
+                i.GodinaIzdanja = igrica.GodinaIzdanja;
 
                 _context.Igrice.Update(i);
                 _context.SaveChanges();

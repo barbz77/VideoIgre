@@ -1,10 +1,12 @@
-﻿namespace BACKEND.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BACKEND.Models
 {
     public class Igrica : Entitet
     {
         public string Naziv { get; set; } = "";
         public decimal Ocjena { get; set; }
-        public DateTime godinaIzdanja { get; set; }
+        public DateTime GodinaIzdanja { get; set; }
       
     }
 }
