@@ -49,7 +49,7 @@ namespace BACKEND.Controllers
                 {
                     return NotFound();
                 }
-                return Ok(_context.Igrice);
+                return Ok(igrica);
             }
             catch (Exception e)
             {
@@ -60,6 +60,12 @@ namespace BACKEND.Controllers
         [HttpPost]
         public IActionResult Post(Igrica igrica)
         {
+            // bolje mjesto za kontroliranje unosa u bazu
+            if(igrica.Ocjena<0 || igrica.Ocjena > 99.9M)
+            {
+                return BadRequest(new { poruka = "Ocjena ne može biti manja od 0 niti veća od 99,9" });
+            }
+
 
             try
             {
@@ -92,7 +98,7 @@ namespace BACKEND.Controllers
 
                 i.Naziv = igrica.Naziv;
                 i.Ocjena = igrica.Ocjena;
-                i.godinaIzdanja = igrica.godinaIzdanja;
+                i.GodinaIzdanja = igrica.GodinaIzdanja;
 
                 _context.Igrice.Update(i);
                 _context.SaveChanges();

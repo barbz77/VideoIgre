@@ -19,11 +19,17 @@ export default function IgriceDodaj(){
 
         let podaci = new FormData(e.target);
         
+        let ocjena = parseFloat(podaci.get('ocjena'));
+// kontrola na strani JS -> nije best practice
+        if(ocjena<0 || ocjena>99.9){
+            alert('Ocjena ne može bit manja od 0 i veća od 99,9')
+            return
+        }
 
         dodaj(
             {
              naziv: podaci.get('naziv'),
-             ocjena: parseFloat(podaci.get('ocjena')),
+             ocjena: ocjena,
              godinaIzdanja: moment.utc(podaci.get('godinaIzdanja')),
         }
              

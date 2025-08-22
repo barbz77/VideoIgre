@@ -58,7 +58,7 @@ return(
                 
 
                 <td>
-                <Button onClick={()=> navigate(`/zanr/${zanr.sifra}`)}>
+                <Button onClick={()=> navigate(`/zanrovi/${zanr.sifra}`)}>
                     Change
                 </Button>
 

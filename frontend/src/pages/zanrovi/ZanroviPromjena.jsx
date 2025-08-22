@@ -34,12 +34,12 @@ function odradiSubmit(e){
 return(
 
 <>
-Promjena žanra
+Change genre
 
 <Form onSubmit={odradiSubmit}>
 
 <Form.Group controlId="naziv">
-    <Form.Label>Naziv</Form.Label>
+    <Form.Label>Name</Form.Label>
     <Form.Control type="text" name="naziv" required
     defaultValue={zanr.naziv}/>
 </Form.Group>
@@ -49,11 +49,11 @@ Promjena žanra
         <Row>
             <Col xs={6} sm={6} md={3} lg={2} xl={6} xxl={6}>
             <Link to={RouteNames.ZANROVI_PREGLED}
-            className="btn btn-danger">Odustani</Link>
+            className="btn btn-danger">Quit</Link>
             </Col>
              <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
                     <Button variant="success" type="submit">
-                        Promjeni
+                        Change
                     </Button>
                 </Col>
         </Row>
