@@ -1,12 +1,13 @@
 body{ 
   min-height: 100vh;
   margin: 0;
-  font-family: 'Eagle Lake', cursive;
-  background-image: url('/Texturelabs_Paper_331M.jpg');
+  font-family: "Audiowide", sans-serif;
+    border:2px dotted ;
+  background: linear-gradient(#000000, #743cce) ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #3b2f2f; 
+  color: #f8088c; 
 
 }
 
@@ -16,7 +17,7 @@ body{
 .app{
      
     min-height: 700px;
-    border:2px dotted #3b2f2f;
+    border:2px dotted #f8088c;
     margin: 25px;
     padding: 25px;   
 }
@@ -32,29 +33,29 @@ footer{
     background-color: transparent;
 }
 .btn {
-  font-family: 'Eagle Lake', cursive;
-  background-color: #7b2d26; 
-  border: 2px solid #c9a227; 
-  color: #fdf6e3; 
+  font-family: "Audiowide", sans-serif;
+  background-color: #743cce; 
+  border: 2px solid #f8088c; 
+  color: #f8088c; 
   border-radius: 8px;
   padding: 10px 20px;
   transition: all 0.2s ease;
 }
 
 .btn:hover {
-  background-color: #c9a227; 
-  color: #3b2f2f; 
+  background-color: #f8088c; 
+  color: #743cce; 
 }
 
 .table {
-  font-family: 'Eagle Lake', cursive;
-  background-color: #f4e1c1;
-  border: 3px solid #c9a227;
+  font-family: "Audiowide", sans-serif;
+  background-color: #d16d08;
+  border: 3px solid #f8088c;
 }
 
 .table thead th {
-  background-color: #4a6741; 
-  color: #fdf6e3;
+  background-color: #743cce; 
+  color: #f8088c;
 }
 .bg-body-tertiary {
     background-color: transparent !important; 
