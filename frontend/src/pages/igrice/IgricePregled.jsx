@@ -50,7 +50,7 @@ useEffect(()=>{
            <thead>
                <tr>
                 <th>Name</th>
-                <th>Rating</th>
+                <th>Rating (metacritic)</th>
                 <th>Release Date</th>
                 
                 <th>Options</th>

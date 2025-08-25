@@ -12,7 +12,7 @@ GO
 create table igrice(
 sifra int not null primary key identity(1,1),
 naziv varchar(100) not null,
-ocjena decimal(3,1) not null,
+ocjena tinyint not null,
 godinaIzdanja datetime not null
 );
 
@@ -38,219 +38,343 @@ platforma int not null references platforme(sifra)
 
 
 insert into igrice (naziv, ocjena, godinaIzdanja) values
-('The Witcher 3: Wild Hunt', 9.7, '2015-05-19'),
+('The Witcher 3: Wild Hunt', 92, '2015-05-19'),
 
-('Red Dead Redemption 2', 9.7, '2018-10-26'),
+('Red Dead Redemption 2', 97, '2018-11-26'),
 
-('Grand Theft Auto V', 9.5, '2013-09-17'),
+('Grand Theft Auto V', 97, '2014-11-18'),
 
-('Cyberpunk 2077', 8.5, '2020-12-10'),
+('Cyberpunk 2077', 86, '2020-12-10'),
 
-('Elden Ring', 9.5, '2022-02-25'),
+('Elden Ring', 96, '2022-02-25'),
 
-('The Legend of Zelda: Breath of the Wild', 9.7, '2017-03-03'),
+('The Legend of Zelda: Breath of the Wild', 97, '2017-03-03'),
 
-('God of War (2018)', 9.4, '2018-04-20'),
+('God of War', 94, '2018-04-20'),
 
-('Spider-Man: Miles Morales', 8.7, '2020-11-12'),
+('Marvels Spider-Man: Miles Morales', 85, '2020-11-12'),
 
-('Horizon Zero Dawn', 9.0, '2017-02-28'),
+('Horizon Zero Dawn', 90, '2017-02-28'),
 
-('Minecraft', 9.3, '2011-11-18'),
+('Minecraft', 93, '2011-11-18'),
 
-('The Legend of Zelda: Ocarina of Time', 9.9, '1998-11-23'),
+('The Legend of Zelda: Ocarina of Time', 99, '1998-11-23'),
 
-('Grand Theft Auto IV', 9.8, '2008-04-29'),
+('Grand Theft Auto IV', 98, '2008-04-29'),
 
-('Super Mario Galaxy', 9.7, '2007-11-12'),
+('Super Mario Galaxy', 97, '2007-11-12'),
 
-('Super Mario Galaxy 2', 9.7, '2010-05-23'),
+('Super Mario Galaxy 2', 97, '2010-05-23'),
 
-('Disco Elysium: The Final Cut', 9.7, '2021-03-30'),
+('Disco Elysium: The Final Cut', 89, '2021-03-30'),
 
-('Half-Life 2', 9.6, '2004-11-16'),
+('Half-Life 2', 96, '2004-11-16'),
 
-('Baldurs Gate 3', 9.6, '2023-08-03'),
+('Baldurs Gate 3', 96, '2023-08-03'),
 
-('The Legend of Zelda: Tears of the Kingdom', 9.6, '2023-05-12'),
+('The Legend of Zelda: Tears of the Kingdom', 96, '2023-05-12'),
 
-('Resident Evil 4 (2005)', 9.6, '2005-01-11'),
+('Resident Evil 4 (2005)', 96, '2005-01-11'),
 
-('The Elder Scrolls V: Skyrim', 9.6, '2011-11-11'),
+('The Elder Scrolls V: Skyrim', 96, '2011-11-11'),
 
-('Half-Life', 9.6, '1998-11-19'),
+('Half-Life', 96, '1998-11-19'),
 
-('Metroid Prime Remastered', 9.4, '2023-02-08'),
+('Metroid Prime Remastered', 94, '2023-02-08'),
 
-('BioShock', 9.6, '2007-08-21'),
+('BioShock', 96, '2007-08-21'),
 
-('Portal 2', 9.5, '2011-04-19'),
+('Portal 2', 95, '2011-04-19'),
 
-('Mass Effect 2', 9.6, '2010-01-26'),
+('Mass Effect 2', 96, '2010-01-26'),
 
-('Uncharted 2: Among Thieves', 9.6, '2009-10-13'),
+('Uncharted 2: Among Thieves', 96, '2009-10-13'),
 
-('Red Dead Redemption', 9.5, '2010-05-18'),
+('Red Dead Redemption', 95, '2010-05-18'),
 
-('God of War Ragnarök', 9.4, '2022-11-09'),
+('God of War: Ragnarök', 94, '2022-11-09'),
 
-('The Last of Us Remastered', 9.5, '2014-07-29'),
+('The Last of Us Remastered', 95, '2014-07-29'),
 
-('Persona 5 Royal', 9.5, '2020-03-31'),
+('Persona 5 Royal', 95, '2020-03-31'),
 
-('Outer Wilds', 9.3, '2019-05-28'),
+('Outer Wilds', 85, '2019-05-28'),
 
-('Hades', 9.3, '2020-09-17'),
+('Hades', 93, '2020-09-17'),
 
-('Celeste', 9.2, '2018-01-25'),
+('Celeste', 92, '2018-01-25'),
 
-('Ori and the Blind Forest', 8.8, '2015-03-11'),
+('Ori and the Blind Forest', 88, '2015-03-11'),
 
-('Bloodborne', 9.2, '2015-03-24'),
+('Bloodborne', 92, '2015-03-24'),
 
-('Dark Souls', 8.9, '2011-09-22'),
+('Dark Souls', 89, '2011-09-22'),
 
-('Sekiro: Shadows Die Twice', 9.1, '2019-03-22'),
+('Sekiro: Shadows Die Twice', 90, '2019-03-22'),
 
-('Control', 8.4, '2019-08-27'),
+('Control', 82, '2019-08-27'),
 
-('Dishonored 2', 8.8, '2016-11-11'),
+('Dishonored 2', 88, '2016-11-11'),
 
-('DOOM (2016)', 8.5, '2016-05-13'),
+('DOOM Eternal', 88, '2020-03-20'),
 
-('Marvels Spider-Man', 8.7, '2018-09-07'),
+('Marvels Spider-Man', 87, '2018-09-07'),
 
-('Ghost of Tsushima', 8.3, '2020-07-17'),
+('Ghost of Tsushima', 83, '2020-07-17'),
 
-('Horizon Forbidden West', 8.8, '2022-02-18'),
+('Horizon Forbidden West', 88, '2022-02-18'),
 
-('Death Stranding', 8.2, '2019-11-08'),
+('Death Stranding', 82, '2019-11-08'),
 
-('Returnal', 8.6, '2021-04-30'),
+('Returnal', 86, '2021-04-30'),
 
-('Demons Souls (PS5)', 9.2, '2020-11-12'),
+('Demons Souls', 92, '2020-11-12'),
 
-('Ratchet & Clank: Rift Apart', 8.8, '2021-06-11'),
+('Ratchet & Clank: Rift Apart', 88, '2021-06-11'),
 
-('It Takes Two', 8.8, '2021-03-26'),
+('It Takes Two', 88, '2021-03-26'),
 
-('Psychonauts 2', 9.1, '2021-08-25'),
+('Psychonauts 2', 87, '2021-08-25'),
 
-('Inside', 9.2, '2016-06-29'),
+('Inside', 93, '2016-06-29'),
 
-('Hollow Knight', 9.0, '2017-02-24'),
+('Hollow Knight', 90, '2017-02-24'),
 
-('Cuphead', 8.8, '2017-09-29'),
+('Silent Hill 3', 85, '2003-08-05'),
 
-('Nier: Automata', 8.8, '2017-03-07'),
+('Nier: Automata', 88, '2017-03-07'),
 
-('Undertale', 9.2, '2015-09-15'),
+('Undertale', 92, '2015-09-15'),
 
-('What Remains of Edith Finch', 8.8, '2017-04-25'),
+('What Remains of Edith Finch', 88, '2017-04-25'),
 
-('Fire Emblem: Three Houses', 8.9, '2019-07-26'),
+('Fire Emblem: Three Houses', 89, '2019-07-26'),
 
-('Final Fantasy VII Remake', 8.7, '2020-04-10'),
+('Final Fantasy VII Remake', 87, '2020-04-10'),
 
-('Persona 5', 9.3, '2017-04-04'),
+('Persona 5', 93, '2017-04-04'),
 
-('Stardew Valley', 8.9, '2016-02-26'),
+('Stardew Valley', 89, '2016-02-26'),
 
-('The Last Guardian', 8.2, '2016-12-06'),
+('The Last Guardian', 82, '2016-12-06'),
 
-('BioShock Infinite', 9.4, '2013-03-26'),
+('BioShock Infinite', 94, '2013-03-25'),
 
-('Hollow Knight: Silksong', 9.4, '2025-05-18'),
+('Divinity: Original Sin II', 93, '2017-09-14'),
 
-('Divinity: Original Sin II', 9.3, '2017-09-14'),
+('Star Wars: Knights of the Old Republic', 94, '2003-07-15'),
 
-('Star Wars: Knights of the Old Republic', 9.3, '2003-07-15'),
+('Okami', 93, '2006-09-19'),
 
-('Okami', 9.3, '2006-09-19'),
+('Silent Hill', 86, '1999-02-24'),
 
-('Prey', 8.2, '2017-05-05'),
+('Firewatch', 81, '2016-02-09'),
 
-('Firewatch', 8.1, '2016-02-09'),
+('Tomb Raider', 86, '2013-03-05'),
 
-('Tomb Raider (2013)', 8.7, '2013-03-05'),
+('The Outer Worlds', 85, '2019-10-25'),
 
-('The Outer Worlds', 8.5, '2019-10-25'),
+('Subnautica', 87, '2018-01-23'),
 
-('Subnautica', 8.7, '2018-01-23'),
+('The Last of Us Part II', 93, '2020-06-19'),
 
-('The Last of Us', 9.5, '2013-06-14'),
+('Batman: Arkham City', 94, '2011-10-18'),
 
-('Batman: Arkham City', 9.6, '2011-10-18'),
+('Super Mario Odyssey', 97, '2017-10-27'),
 
-('Super Mario Odyssey', 9.7, '2017-10-27'),
+('Final Fantasy VII', 92, '1997-09-07'),
 
-('Final Fantasy VII', 9.2, '1997-09-07'),
+('Portal', 90, '2007-10-10'),
 
-('Portal', 9.0, '2007-10-10'),
+('Dead Cells', 89, '2018-08-07'),
 
-('Dead Cells', 8.9, '2018-08-07'),
+('Shadow of the Colossus', 91, '2018-02-06'),
 
-('Shadow of the Colossus', 9.1, '2005-10-18'),
+('Uncharted 4: A Thiefs End', 93, '2016-05-10'),
 
-('Uncharted 4: A Thiefs End', 9.3, '2016-05-10'),
+('Persona 4 Golden', 93, '2012-06-14'),
 
-('Persona 4 Golden', 9.3, '2012-06-14'),
+('Bayonetta', 90, '2009-10-29'),
 
-('Bayonetta', 9.0, '2009-10-29'),
+('Silent Hill 2', 86, '2024-10-08'),
 
-('DOOM Eternal', 8.7, '2020-03-20'),
+('Metal Gear Solid V: The Phantom Pain', 93, '2015-09-01'),
 
-('Metal Gear Solid V: The Phantom Pain', 9.3, '2015-09-01'),
+('Dark Souls III', 89, '2016-03-24'),
 
-('Dark Souls III', 8.9, '2016-03-24'),
+('Dishonored', 88, '2012-10-09'),
 
-('Dishonored', 9.1, '2012-10-09'),
+('Dragon Quest XI S: Echoes of an Elusive Age - Definitive Edition', 91, '2019-09-27'),
 
-('Dragon Quest XI S: Echoes of an Elusive Age - Definitive Edition', 9.1, '2019-09-27'),
+('Batman: Arkham Asylum', 92, '2009-08-25'),
 
-('Batman: Arkham Asylum', 9.2, '2009-08-25'),
+('The Talos Principle', 85, '2014-12-11'),
 
-('The Talos Principle', 8.8, '2014-12-11'),
+('The Elder Scrolls III: Morrowind', 87, '2002-05-01'),
 
-('The Elder Scrolls III: Morrowind', 8.9, '2002-05-01'),
+('Chrono Trigger', 92, '1995-03-11'),
 
-('Chrono Trigger', 9.2, '1995-03-11'),
+('Grim Fandango', 94, '1998-10-14'),
 
-('Grim Fandango', 9.3, '1998-10-30'),
+('Diablo II', 88, '2000-06-28'),
 
-('Diablo II', 8.8, '2000-06-29'),
+('System Shock 2', 92, '1999-08-11'),
 
-('System Shock 2', 9.2, '1999-08-11'),
+('Planescape: Torment', 91, '1999-12-14'),
 
-('Planescape: Torment', 9.1, '1999-12-12'),
+('Castlevania: Symphony of the Night', 89, '2007-03-21'),
 
-('Castlevania: Symphony of the Night', 9.3, '1997-03-20'),
+('Final Fantasy Tactics', 88, '2007-10-09'),
 
-('Final Fantasy Tactics', 8.3, '1997-06-20'),
+('Street Fighter 6', 92, '2023-06-02'),
 
-('Street Fighter Alpha 3', 9.3, '1998-09-01'),
+('Astro Bot', 94, '2024-09-06'),
 
-('Thief: The Dark Project', 9.2, '1998-11-30'),
+('Untitled Goose Game', 81, '2019-09-20'),
 
-('The Sims', 9.2, '2000-02-04'),
+('Terraria', 81, '2013-03-27'),
 
-('StarCraft', 8.8, '1998-03-31'),
+('Baldurs Gate', 91, '1998-12-21'),
 
-('Baldurs Gate', 9.1, '1998-12-21'),
+('Diablo', 94, '1996-12-31'),
 
-('Diablo', 9.4, '1997-12-31'),
+('Grand Theft Auto: San Andreas', 95, '2004-10-26'),
 
-('Quake', 9.4, '1996-06-22'),
+('Grand Theft Auto: Vice City', 95, '2002-10-29'),
 
-('Civilization IV', 9.4, '2005-10-25'),
+('Grand Theft Auto III', 97, '2001-10-22'),
 
-('Beyond Good & Evil', 8.7, '2003-11-11'),
+('Fable', 85, '2004-09-14'),
 
-('Fable', 8.5, '2004-09-14'),
+('Psychonauts', 88, '2005-04-20'),
 
-('Psychonauts', 8.6, '2005-04-19'),
+('The Witcher 2: Assassins of Kings', 88, '2012-04-17'),
 
-('Mirrors Edge', 8.0, '2008-11-12');
+('God of War III', 92, '2010-03-16'),
+
+('God of War II', 93, '2007-03-13'),
+
+('Disco Elysium', 91, '2019-10-15'),
+
+('Baldurs Gate II: Shadows of Amn', 95, '2000-09-24'),
+
+('Resident Evil 4', 93, '2023-03-24'),
+
+('Resident Evil 2', 91, '2019-01-25'),
+
+('Resident Evil Village', 84, '2021-05-07'),
+
+('Resident Evil 7: biohazard', 86, '2017-01-24'),
+
+('Resident Evil (Remake)', 91, '2002-04-30'),
+
+('The Elder Scrolls IV: Oblivion', 94, '2006-03-20'),
+
+('Mass Effect 3', 93, '2012-03-06'),
+
+('Mass Effect', 91, '2007-11-20'),
+
+('Uncharted 3: Drake’s Deception', 92, '2011-11-01'),
+
+('Ori and the Will of the Wisps', 90, '2020-03-11'),
+
+('Dark Souls II', 91, '2014-03-11'),
+
+('DOOM 3', 87, '2004-08-03'),
+
+('Spider-Man', 87, '2000-08-30'),
+
+('Spider-Man 2', 83, '2004-06-28'),
+
+('Death Stranding 2: On The Beach', 89, '2025-06-26'),
+
+('Ratchet & Clank: Up Your Arsenal', 91, '2004-11-03'),
+
+('Ratchet & Clank: Going Commando', 90, '2003-11-11'),
+
+('Final Fantasy XVI', 87, '2023-06-22'),
+
+('Final Fantasy XIV: Endwalker', 92, '2021-12-07'),
+
+('Final Fantasy XV', 81, '2016-11-29'),
+
+('Final Fantasy IX', 94, '2000-11-13'),
+
+('Divinity: Original Sin', 87, '2014-06-30'),
+
+('Star Wars Jedi: Survivor', 85, '2023-04-28'),
+
+('Subnautica: Below Zero', 82, '2021-05-14'),
+
+('Batman: Arkham Knight', 87, '2015-06-23'),
+
+('Dead Cells: The Queen & The Sea', 92, '2022-01-06'),
+
+('Bayonetta 2', 91, '2014-10-24'),
+
+('Bayonetta 3', 86, '2022-10-28'),
+
+('Metal Gear Solid 4: Guns of the Patriots', 94, '2008-06-12'),
+
+('Metal Gear Solid 2: Sons of Liberty', 96, '2001-11-12'),
+
+('Metal Gear Solid', 94, '1998-10-21'),
+
+('Metal Gear Solid 3: Snake Eater', 91, '2004-11-17'),
+
+('The Talos Principle 2: Road to Elysium', 90, '2024-06-14'),
+
+('Chrono Cross', 94, '2000-08-15'),
+
+('Diablo III', 88, '2012-05-15'),
+
+('Diablo IV', 86, '2023-06-06'),
+
+('Fable II', 89, '2008-10-21'),
+
+('Assassins Creed', 81, '2007-11-13'),
+
+('Assassins Creed Valhalla', 80, '2020-11-10'),
+
+('Assassins Creed Odyssey', 83, '2018-10-02'),
+
+('Assassins Creed IV: Black Flag', 88, '2013-10-29'),
+
+('Assassins Creed II', 90, '2009-11-17'),
+
+('Metro Exodus', 82, '2019-02-15'),
+
+('Metro: 2033 Redux', 90, '2014-08-25'),
+
+('Metro: Last Light', 82, '2013-05-13'),
+
+('Blue Prince', 92, '2025-04-10'),
+
+('Bramble: The Mountain King', 80, '2023-04-27'),
+
+('DREDGE', 80, '2023-03-30'),
+
+('The Last Campfire', 83, '2020-06-27'),
+
+('Little Nightmares II', 82, '2021-02-11'),
+
+('Lost Ark', 81, '2022-02-11'),
+
+('Mortal Kombat 11', 82, '2019-04-23'),
+
+('Mortal Kombat X', 83, '2015-04-14'),
+
+('Mortal Kombat', 86, '2011-04-19'),
+
+('Mortal Kombat 1', 83, '2023-09-19'),
+
+('Outlast', 80, '2013-09-04'),
+
+('Path of Exile', 86, '2013-10-23'),
+
+('Slay the Spire', 89, '2019-01-23'),
+
+('Stray', 83, '2022-07-19')
 
 
 insert into zanrovi (naziv) values

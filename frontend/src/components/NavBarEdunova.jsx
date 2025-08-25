@@ -15,7 +15,7 @@ const navigate = useNavigate()
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand className='ruka' onClick={()=>navigate(RouteNames.HOME)} >Game Recommender</Navbar.Brand>
+        <Navbar.Brand className='ruka' onClick={()=>navigate(RouteNames.HOME)} >Main</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

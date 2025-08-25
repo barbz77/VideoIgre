@@ -44,7 +44,7 @@ namespace BACKEND.Controllers
                 {
                     return NotFound();
                 }
-                return Ok(_context.Zanrovi);
+                return Ok(zanr);
             }
             catch (Exception e)
             {

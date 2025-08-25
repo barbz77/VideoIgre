@@ -17,9 +17,9 @@ body{
 .app{
      
     min-height: 700px;
-    border:2px dotted #f8088c;
-    margin: 25px;
+    margin: 5px;
     padding: 25px;   
+    
 }
   
 .sredina{
@@ -49,8 +49,13 @@ footer{
 
 .table {
   font-family: "Audiowide", sans-serif;
-  background-color: #d16d08;
-  border: 3px solid #f8088c;
+  background-color: #f8088c;
+  border: 2px solid #f8088c;
+  border-radius: 12px;   
+  overflow: hidden;     
+  border-collapse: collapse; 
+
+  
 }
 
 .table thead th {
@@ -58,8 +63,49 @@ footer{
   color: #f8088c;
 }
 .bg-body-tertiary {
-    background-color: transparent !important; 
+  background: linear-gradient(#000000, #743cce) !important;
+  border-bottom: 2px solid #f8088c; 
+  
+}
+h1 {
+  color: #f8088c;
+  font-size: 3rem;
+  text-align: center;
+  text-shadow: 0 0 8px #f8088c,
+               0 0 16px #743cce,
+               0 0 24px #743cce;
 }
 
+.navbar-brand {
+  color: #f8088c !important; 
+  font-family: "Audiowide", sans-serif;
+  font-size: 1.5rem;
+}
+
+.navbar-brand:hover {
+  color: #743cce !important; 
+}
+
+.nav-link {
+  color: #f8088c !important;   
+  font-family: "Audiowide", sans-serif;
+}
+
+.nav-link:hover {
+  color: #743cce !important;  
+}
+.dropdown-menu {
+  background-color: #000000 !important; 
+  border: 1px solid #f8088c;            
+}
+
+.dropdown-item {
+  color: #f8088c !important;             
+}
+
+.dropdown-item:hover {
+  background-color: #743cce !important;   
+  color: #fff !important;                
+}
 
 
