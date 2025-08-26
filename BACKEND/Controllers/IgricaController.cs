@@ -60,10 +60,9 @@ namespace BACKEND.Controllers
         [HttpPost]
         public IActionResult Post(Igrica igrica)
         {
-            // bolje mjesto za kontroliranje unosa u bazu
-            if(igrica.Ocjena > 100)
+            if(igrica.Ocjena<0 || igrica.Ocjena > 100)
             {
-                return BadRequest(new { poruka = "Rating cannont be bigger than 100" });
+                return BadRequest(new { poruka = "Rating cannont be smaller than 0 nor bigger than 100" });
             }
 
 
