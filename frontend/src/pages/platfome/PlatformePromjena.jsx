@@ -1,12 +1,26 @@
-import { Button, Col, Row } from "react-bootstrap";
-import { Form, useNavigate, useParams } from "react-router-dom";
+import { Button, Col, Row, Form } from "react-bootstrap";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { RouteNames } from "../../constants";
 import PlatformeService from "../../services/PlatformeService";
+import { useEffect, useState } from "react";
 
 export default function PlatformePromjena(){
 
     const navigate=useNavigate();
     const params= useParams();
+    const [platforma, setPlatforma]= useState({
+        naziv: "",
+    })
+
+    async function ucitajPlatformu() {
+        const odgovor = await PlatformeService.getBySifra(params.sifra);
+        setPlatforma(odgovor);
+    }
+    
+    
+    useEffect(()=>{
+        ucitajPlatformu();
+    }, []);
 
 
     async function promjena(sifra, platforma) {
@@ -14,7 +28,6 @@ export default function PlatformePromjena(){
         navigate(RouteNames.PLATFORME_PREGLED);
         
     }
-    
 
 
 function odradiSubmit(e){

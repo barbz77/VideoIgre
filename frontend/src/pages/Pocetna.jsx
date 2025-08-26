@@ -3,6 +3,8 @@ import { Button } from "react-bootstrap";
 import { NumericFormat } from "react-number-format";
 import moment from "moment";
 import IgriceService from "../services/IgriceService";
+import CoverflowCarousel from "../components/CoverflowCarousel";
+
 
 export default function Pocetna() {
   const [igrica, setIgrica] = useState(null);
@@ -44,7 +46,8 @@ export default function Pocetna() {
     </tbody>
   </table>
 )}
-
+    
+    <CoverflowCarousel />
     </>
   )
 }

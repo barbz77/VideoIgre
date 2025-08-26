@@ -58,7 +58,8 @@ return(
                 
 
                 <td>
-                <Button onClick={()=> navigate(`/platforma/${platforma.sifra}`)}>
+                <Button onClick={() => navigate(`/platforme/${platforma.sifra}`)}>
+
                     Change
                 </Button>
 
