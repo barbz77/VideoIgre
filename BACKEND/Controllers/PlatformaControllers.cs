@@ -1,6 +1,7 @@
 ﻿using BACKEND.Data;
 using BACKEND.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BACKEND.Controllers
 {
@@ -127,6 +128,46 @@ namespace BACKEND.Controllers
                 return BadRequest(e);
             }
         }
+
+
+
+        [HttpGet]
+        [Route("IgricaUPlatformi/{sifraPlatforme:int}")]
+        public ActionResult<List<Igrica>> GetIgricaUPlatformi(int sifraPlatforme)
+        {
+            try
+            {
+
+                var lista = _context.Platforme
+    .Where(x => x.Sifra == sifraPlatforme)
+    .Select(x => new
+    {
+        x.Sifra,
+        x.Naziv,
+        Igrice = x.Igrice.Select(ig => new {
+            ig.Sifra,
+            ig.Naziv,
+            ig.Ocjena,
+            ig.GodinaIzdanja
+            // Exclude ig.Platforma to avoid the cycle
+        }).ToList()
+    })
+    .FirstOrDefault();
+
+                if (lista == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(lista.Igrice);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+
+        }
+
 
     }
 }

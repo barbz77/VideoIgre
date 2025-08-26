@@ -24,7 +24,7 @@ namespace BACKEND.Data
                j => j.HasOne<Igrica>().WithMany().HasForeignKey("igrica"),
                j => j.HasOne<Platforma>().WithMany().HasForeignKey("platforma"),
                j => j.ToTable("igricePlatforme")
-      );
+              );
 
 
 
