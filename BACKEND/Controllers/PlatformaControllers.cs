@@ -149,7 +149,7 @@ namespace BACKEND.Controllers
             ig.Naziv,
             ig.Ocjena,
             ig.GodinaIzdanja
-            // Exclude ig.Platforma to avoid the cycle
+            
         }).ToList()
     })
     .FirstOrDefault();

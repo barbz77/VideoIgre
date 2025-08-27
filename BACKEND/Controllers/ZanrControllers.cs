@@ -131,5 +131,46 @@ namespace BACKEND.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("IgricaUZanru/{sifraZanrovi:int}")]
+        public ActionResult<List<Igrica>> GetIgricaUZanru(int sifraZanrovi)
+        {
+            try
+            {
+
+                var lista = _context.Zanrovi
+    .Where(x => x.Sifra == sifraZanrovi)
+    .Select(x => new
+    {
+        x.Sifra,
+        x.Naziv,
+        Igrice = x.Igrice.Select(ig => new {
+            ig.Sifra,
+            ig.Naziv,
+            ig.Ocjena,
+            ig.GodinaIzdanja
+
+        }).ToList()
+    })
+    .FirstOrDefault();
+
+                if (lista == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(lista.Igrice);
+            }
+            catch (Exception e)
+            {
+                return Problem(
+                    detail: e.Message,
+                    title: "An error occurred",
+                    statusCode: 400
+                );
+            }
+
+
+        }
     }
 }

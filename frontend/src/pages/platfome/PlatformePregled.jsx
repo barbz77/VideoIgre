@@ -1,86 +1,105 @@
-import { useEffect, useState } from "react";
+import{ useEffect, useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
 import PlatformeService from "../../services/PlatformeService";
 import { Button, Table } from "react-bootstrap";
 
+export default function PlatformePregled() {
 
-export default function PlatformePregled(){
+  const [platforme, setPlatforme] = useState([]);
+  const [expanded, setExpanded] = useState({});
+  const navigate = useNavigate();
 
-const[platforme, setPlatforme]= useState([]);
-const navigate = useNavigate();
+  // Fetch platforms
+  async function dohvatiPlatforme() {
+    const odgovor = await PlatformeService.get();
+    setPlatforme(odgovor);
+  }
 
-
-async function dohvatiPlatforme() {
-    const odgovor = await PlatformeService.get()
-    setPlatforme(odgovor)
-}
-
-
-useEffect(()=>{
+  useEffect(() => {
     dohvatiPlatforme();
+  }, []);
 
-},[])
+  // Delete platform
+  function obrisi(sifra) {
+    if (!window.confirm('Are you sure you want to delete this platform?')) return;
+    brisanje(sifra);
+  }
 
+  async function brisanje(sifra) {
+    await PlatformeService.obrisi(sifra);
+    dohvatiPlatforme();
+  }
 
-     function obrisi(sifra){
-        if(!confirm('Sigruno obrisati?')){
-            return;
-        }
-        brisanje(sifra)
-     }
+  // Toggle games dropdown
+  async function toggleGames(sifraPlatforme) {
+    if (expanded[sifraPlatforme]) {
+      setExpanded(prev => ({ ...prev, [sifraPlatforme]: null }));
+      return;
+    }
 
-     async function brisanje(sifra) {
-        const odgovor = await PlatformeService.obrisi(sifra);
-        dohvatiPlatforme();
-     }
+    try {
+      const response = await fetch(`IgricaUPlatformi/${sifraPlatforme}`);
+      if (!response.ok) throw new Error("Failed to fetch games");
 
-return(
+      const igre = await response.json();
+      setExpanded(prev => ({ ...prev, [sifraPlatforme]: igre }));
+    } catch (error) {
+      console.error(error);
+      alert("Failed to fetch games");
+    }
+  }
+
+  return (
     <>
+      <Link className="btn btn-success mb-3" to={RouteNames.PLATFORME_NOVI}>
+        Add New Platform
+      </Link>
 
-
-    <Link
-    className="btn btn-success"
-    to={RouteNames.PLATFORME_NOVI}>Add new</Link>
-
-    <Table striped bordered hover responsive>
+      <Table striped bordered hover responsive>
         <thead>
-            <tr>
-                <th>Name</th>
-                
-                <th>Options</th>
-            </tr>
+          <tr>
+            <th>Name</th>
+            <th>Options</th>
+          </tr>
         </thead>
         <tbody>
-            {platforme && platforme.map((platforma, index)=>(
-             <tr key={index}>
+          {platforme && platforme.map((platforma, index) => (
+            <React.Fragment key={index}>
+              <tr>
                 <td>{platforma.naziv}</td>
-                
-
                 <td>
-                <Button onClick={() => navigate(`/platforme/${platforma.sifra}`)}>
-
+                  <Button onClick={() => navigate(`/platforme/${platforma.sifra}`)}>
                     Change
-                </Button>
-
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                   <Button variant="danger" onClick={() => obrisi(platforma.sifra)}>
-                   Delete
-                   </Button>
-                   </td>
-
-
-
-             </tr>   
-            ))}
+                  </Button>
+                  &nbsp;&nbsp;
+                  <Button variant="danger" onClick={() => obrisi(platforma.sifra)}>
+                    Delete
+                  </Button>
+                  &nbsp;&nbsp;
+                  <Button variant="primary" onClick={() => toggleGames(platforma.sifra)}>
+                    {expanded[platforma.sifra] ? "Hide Games" : "Show Games"}
+                  </Button>
+                </td>
+              </tr>
+              {expanded[platforma.sifra] && (
+                <tr>
+                  <td colSpan={2}>
+                    <ul>
+                      {expanded[platforma.sifra].map(igra => (
+                        <li key={igra.sifra}>
+                          {igra.naziv} ({igra.godinaIzdanja}) - Rating: {igra.ocjena}
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
+          ))}
         </tbody>
-    </Table>
-
-
-
-
+      </Table>
     </>
-)
-
-
+  );
 }
