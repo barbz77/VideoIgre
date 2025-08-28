@@ -26,7 +26,7 @@ namespace BACKEND.Data
                j => j.ToTable("igricePlatforme")
               );
             modelBuilder.Entity<Zanr>()
-            .HasMany(p => p.Igrice)
+            .HasMany(z => z.Igrice)
             .WithMany(i => i.Zanrovi)
             .UsingEntity<Dictionary<string, object>>("igriceZanrovi",
              j => j.HasOne<Igrica>().WithMany().HasForeignKey("igrica"),

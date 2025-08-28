@@ -87,13 +87,25 @@ export default function PlatformePregled() {
               {expanded[platforma.sifra] && (
                 <tr>
                   <td colSpan={2}>
-                    <ul>
-                      {expanded[platforma.sifra].map(igra => (
-                        <li key={igra.sifra}>
-                          {igra.naziv}  - Rating: {igra.ocjena} - Release Date: ({igra.godinaIzdanja})
-                        </li>
-                      ))}
-                    </ul>
+                    <Table bordered size="sm" className="mb-0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rating</th>
+      <th>Release Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    {expanded[platforma.sifra].map(igra => (
+      <tr key={igra.sifra}>
+        <td>{igra.naziv}</td>
+        <td>{igra.ocjena}</td>
+        <td>{igra.godinaIzdanja}</td>
+      </tr>
+    ))}
+  </tbody>
+</Table>
+
                   </td>
                 </tr>
               )}

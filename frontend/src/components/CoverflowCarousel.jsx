@@ -14,17 +14,18 @@ export default function CoverflowCarousel() {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-10">
+    <div className="w-full max-w-4xl mx-auto mt-10">
       <Swiper
         effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={3}
+        spaceBetween={-40}
         loop={true}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         coverflowEffect={{
           rotate: 30,
-          stretch: 0,
+          stretch: -20,
           depth: 100,
           modifier: 1,
           slideShadows: false,

@@ -1,85 +1,120 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { RouteNames } from "../../constants";
+import { PRODUKCIJA, RouteNames } from "../../constants";
 import ZanroviService from "../../services/ZanroviService";
 import { Button, Table } from "react-bootstrap";
 
+export default function ZanroviPregled() {
+  const [zanrovi, setZanrovi] = useState([]);
+  const [expanded, setExpanded] = useState({});
+  const navigate = useNavigate();
 
-export default function ZanroviPregled(){
+  // Fetch all genres
+  async function dohvatiZanrove() {
+    const odgovor = await ZanroviService.get();
+    setZanrovi(odgovor);
+  }
 
-const[zanrovi, setZanrovi]= useState([]);
-const navigate = useNavigate();
-
-
-async function dohvatiZanrove() {
-    const odgovor = await ZanroviService.get()
-    setZanrovi(odgovor)
-}
-
-
-useEffect(()=>{
+  useEffect(() => {
     dohvatiZanrove();
+  }, []);
 
-},[])
+  // Confirm + delete
+  function obrisi(sifra) {
+    if (!window.confirm("Sigurno obrisati?")) return;
+    brisanje(sifra);
+  }
 
+  // Delete API call
+  async function brisanje(sifra) {
+    await ZanroviService.obrisi(sifra);
+    dohvatiZanrove();
+  }
 
-     function obrisi(sifra){
-        if(!confirm('Sigruno obrisati?')){
-            return;
-        }
-        brisanje(sifra)
-     }
+  // Toggle show/hide games for genre
+  async function toggleGames(sifraZanra) {
+    if (expanded[sifraZanra]) {
+      setExpanded(prev => ({ ...prev, [sifraZanra]: null }));
+      return;
+    }
 
-     async function brisanje(sifra) {
-        const odgovor = await ZanroviService.obrisi(sifra);
-        dohvatiZanrove();
-     }
+    try {
+      const odgovor = await fetch(`${PRODUKCIJA}/api/v1/Zanr/IgricaUZanru/${sifraZanra}`);
+      if (!odgovor.ok) throw new Error("Failed to fetch games");
 
-return(
+      const igrice = await odgovor.json();
+      setExpanded(prev => ({ ...prev, [sifraZanra]: igrice }));
+    } catch (error) {
+      console.error(error);
+      alert("Failed to fetch games");
+    }
+  }
+
+  return (
     <>
+      <Link className="btn btn-success mb-3" to={RouteNames.ZANROVI_NOVI}>
+        Add New Genre
+      </Link>
 
-
-    <Link
-    className="btn btn-success"
-    to={RouteNames.ZANROVI_NOVI}>Add new</Link>
-
-    <Table striped bordered hover responsive>
+      <Table striped bordered hover responsive>
         <thead>
-            <tr>
-                <th>Name</th>
-                
-                <th>Options</th>
-            </tr>
+          <tr>
+            <th>Name</th>
+            <th>Options</th>
+          </tr>
         </thead>
         <tbody>
-            {zanrovi && zanrovi.map((zanr, index)=>(
-             <tr key={index}>
+          {zanrovi.map((zanr, index) => (
+            <React.Fragment key={index}>
+              <tr>
                 <td>{zanr.naziv}</td>
-                
-
                 <td>
-                <Button onClick={()=> navigate(`/zanrovi/${zanr.sifra}`)}>
+                  <Button onClick={() => navigate(`/zanrovi/${zanr.sifra}`)}>
                     Change
-                </Button>
+                  </Button>
+                  &nbsp;&nbsp;
+                  <Button variant="danger" onClick={() => obrisi(zanr.sifra)}>
+                    Delete
+                  </Button>
+                  &nbsp;&nbsp;
+                  <Button variant="primary" onClick={() => toggleGames(zanr.sifra)}>
+                    {expanded[zanr.sifra] ? "Hide Games" : "Show Games"}
+                  </Button>
+                </td>
+              </tr>
+              {expanded[zanr.sifra] && (
+                <tr>
+                  <td colSpan={2}>
+                    {expanded[zanr.sifra].length > 0 ? (
+                     <Table bordered size="sm">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rating</th>
+      <th>Release Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    {expanded[zanr.sifra].map(igra => (
+      <tr key={igra.sifra}>
+        <td>{igra.naziv}</td>
+        <td>{igra.ocjena}</td>
+        <td>{igra.godinaIzdanja}</td>
+      </tr>
+    ))}
+  </tbody>
+</Table>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                   <Button variant="danger" onClick={() => obrisi(zanr.sifra)}>
-                   Delete
-                   </Button>
-                   </td>
-
-
-
-             </tr>   
-            ))}
+                    ) : (
+                      <span>No games found for this genre.</span>
+                    )}
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
+          ))}
         </tbody>
-    </Table>
-
-
-
-
+      </Table>
     </>
-)
-
-
+  );
 }
