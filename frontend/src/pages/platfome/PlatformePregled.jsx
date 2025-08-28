@@ -1,7 +1,7 @@
 import{ useEffect, useState } from "react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { RouteNames } from "../../constants";
+import { PRODUKCIJA, RouteNames } from "../../constants";
 import PlatformeService from "../../services/PlatformeService";
 import { Button, Table } from "react-bootstrap";
 
@@ -23,12 +23,12 @@ export default function PlatformePregled() {
 
 
   function obrisi(sifra) {
-    if (!window.confirm('Are you sure you want to delete this platform?')) return;
+    if (!window.confirm('Sigurno obristi?')) return;
     brisanje(sifra);
   }
 
   async function brisanje(sifra) {
-    await PlatformeService.obrisi(sifra);
+    const odgovor = await PlatformeService.obrisi(sifra);
     dohvatiPlatforme();
   }
 
@@ -40,12 +40,12 @@ export default function PlatformePregled() {
     }
 
     try {
-      const response = await fetch(`/api/v1/Platforma/IgricaUPlatformi/${sifraPlatforme}`);
+      const odgovor = await fetch(`${PRODUKCIJA}/api/v1/Platforma/IgricaUPlatformi/${sifraPlatforme}`);
 
-      if (!response.ok) throw new Error("Failed to fetch games");
+      if (!odgovor.ok) throw new Error("Failed to fetch games");
 
-      const igre = await response.json();
-      setExpanded(prev => ({ ...prev, [sifraPlatforme]: igre }));
+      const igrice = await odgovor.json();
+      setExpanded(prev => ({ ...prev, [sifraPlatforme]: igrice }));
     } catch (error) {
       console.error(error);
       alert("Failed to fetch games");
