@@ -11,7 +11,7 @@ export default function PlatformePregled() {
   const [expanded, setExpanded] = useState({});
   const navigate = useNavigate();
 
-  // Fetch platforms
+
   async function dohvatiPlatforme() {
     const odgovor = await PlatformeService.get();
     setPlatforme(odgovor);
@@ -21,7 +21,7 @@ export default function PlatformePregled() {
     dohvatiPlatforme();
   }, []);
 
-  // Delete platform
+
   function obrisi(sifra) {
     if (!window.confirm('Are you sure you want to delete this platform?')) return;
     brisanje(sifra);
@@ -32,7 +32,7 @@ export default function PlatformePregled() {
     dohvatiPlatforme();
   }
 
-  // Toggle games dropdown
+
   async function toggleGames(sifraPlatforme) {
     if (expanded[sifraPlatforme]) {
       setExpanded(prev => ({ ...prev, [sifraPlatforme]: null }));
@@ -40,7 +40,8 @@ export default function PlatformePregled() {
     }
 
     try {
-      const response = await fetch(`IgricaUPlatformi/${sifraPlatforme}`);
+      const response = await fetch(`/api/v1/Platforma/IgricaUPlatformi/${sifraPlatforme}`);
+
       if (!response.ok) throw new Error("Failed to fetch games");
 
       const igre = await response.json();
@@ -89,7 +90,7 @@ export default function PlatformePregled() {
                     <ul>
                       {expanded[platforma.sifra].map(igra => (
                         <li key={igra.sifra}>
-                          {igra.naziv} ({igra.godinaIzdanja}) - Rating: {igra.ocjena}
+                          {igra.naziv}  - Rating: {igra.ocjena} - Release Date: ({igra.godinaIzdanja})
                         </li>
                       ))}
                     </ul>
